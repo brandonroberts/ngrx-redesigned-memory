@@ -8,7 +8,7 @@ export type StateUpdate<T> = (state: T) => Partial<T>;
   providedIn: 'root',
 })
 export class SimpleStoreService<T> {
-  static store: Store<any>;
+  static store: Store<any> = null;
 
   protected getStore(): Store<T> {
     return SimpleStoreService.store;

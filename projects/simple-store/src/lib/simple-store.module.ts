@@ -4,8 +4,6 @@ import { SimpleStoreService } from './simple-store.service';
 import { INITIAL_STATE } from '@ngrx/store';
 import { simpleStoreUpdate } from './simple-store.metareducer';
 
-@NgModule({})
-
 @NgModule({
   imports: [
     StoreModule.forRoot({}, {
@@ -20,11 +18,11 @@ export class SimpleStoreModule {
 
   static forRoot(config: {
     initialState?: any
-  }): ModuleWithProviders<SimpleStoreModule> {
+  } = {}): ModuleWithProviders<SimpleStoreModule> {
     return {
       ngModule: SimpleStoreModule,
       providers: [
-        { provide: INITIAL_STATE, useValue: config.initialState || {} }
+        { provide: INITIAL_STATE, useValue: config.initialState }
       ]
     }
   }
